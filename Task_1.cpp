@@ -36,15 +36,25 @@ int main() {
         std::cout << "Enter the phone number to search for:";
         std::cin >> num;
         std::map<std::string, std::string> :: iterator it = num_surname.find(num);
-        std::cout << "Subscriber's number " << it -> first << " " << it -> second << "\n";
+        if (it == num_surname.end()) {
+            std::cout << "Not found" << std::endl;
+        }
+        else {
+            std::cout << "Subscriber's number " << it->first << " " << it->second << "\n";
+        }
     }
     else if (answer == 'f'){
         std::cout << "Enter the subscriber's last name:";
         std::cin >> surname;
         std::map<std::string, std::vector<std::string>> :: iterator it = surname_num.find(surname);
-        std::cout << "Last name numbers " <<  it -> first << " ";
-        for (int i = 0; i < it -> second.size(); i++) {
-            std::cout <<  it -> second[i] << " ";
+        if (it == surname_num.end()) {
+            std::cout << "Not found" << std::endl;
+        }
+        else {
+            std::cout << "Last name numbers " << it->first << " ";
+            for (int i = 0; i < it->second.size(); i++) {
+                std::cout << it->second[i] << " ";
+            }
         }
         std::cout << std::endl;
     }
